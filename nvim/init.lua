@@ -1,4 +1,4 @@
-require("settings")
-require("plugins")
+require("config.options")
+require("config.lazy")
+require("config.settings")
 
-vim.cmd.colorscheme "catppuccin-latte"

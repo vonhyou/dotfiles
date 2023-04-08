@@ -13,8 +13,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 
-local plugins = {
-	{ "catppuccin/nvim", name = "catppuccin" },
-}
-
-require("lazy").setup(plugins, opts)
+require("lazy").setup("plugins", {
+	defaults = { lazy = true },
+	ui = {
+		border = "rounded",
+	},
+	checker = { enabled = true },
+	debug = false,
+})
