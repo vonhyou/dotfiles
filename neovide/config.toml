@@ -1,0 +1,9 @@
+frame = "full"
+vsync = true
+wsl = false
+
+[font]
+normal = ["SauceCodePro Nerd Font Mono"]
+italic = ["Victor Mono"]
+bold_italic = ["Victor Mono"]
+size = 15
