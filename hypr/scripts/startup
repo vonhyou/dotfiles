@@ -1,0 +1,24 @@
+#!/bin/bash
+
+SCRIPTSDIR=$HOME/.config/hypr/scripts
+
+# Kill already running process
+_ps=(waybar mako)
+for _prs in "${_ps[@]}"; do
+	if [[ $(pidof ${_prs}) ]]; then
+		killall -9 ${_prs}
+	fi
+done
+
+# polkit agent
+if [[ ! 'pidof polkit-gnome-authentication-agent-1' ]];then
+  /usr/libexec/polkit-gnome-authentication-agent-1 &
+fi
+
+# Lauch notification daemon (mako)
+${SCRIPTSDIR}/notifications &
+
+# Lauch statusbar (waybar)
+${SCRIPTSDIR}/statusbar &
+
+nm-applet --indicator
